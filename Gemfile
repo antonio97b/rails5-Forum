@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
+gem 'slim'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -18,7 +19,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov', :require => false
 end
 
 group :development do
