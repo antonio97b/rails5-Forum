@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Forum.create!(name: "News", description: "A forum for all the current happenings in the world.", user_id: 1)
+Forum.create!(name: "Politics", description: "A place to discuss the latest in politics! (Ugh...)", user_id: 1)
+Forum.create!(name: "Funny", description: "No Funny business allowed.", user_id: 1)

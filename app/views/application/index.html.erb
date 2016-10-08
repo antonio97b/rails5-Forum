@@ -1,1 +1,7 @@
-<p>test</p>
+<h1>Hot Forums</h1>
+
+<ul>
+  <% @forums.each do |f| %>
+  <li><%= link_to f.name, forum_path(f) %></li>
+  <% end %>
+</ul>

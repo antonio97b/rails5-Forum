@@ -8,29 +8,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">FORUM</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Link</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
       <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
-          <%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign in", user_session_path %>
+          <li><%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign in", user_session_path %></li>
         <% end %>
+
+        <% if @forum && current_user === @forum.user  %>
+          <li><%= link_to "SUPER MOD PANEL", edit_forum_path(@forum) %></li>
+        <% end %>
+
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
