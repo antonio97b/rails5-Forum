@@ -3,4 +3,5 @@ class Forum < ApplicationRecord
   validates :description, length: { minimum: 20 }
 
   belongs_to :user
+  has_many :posts
 end

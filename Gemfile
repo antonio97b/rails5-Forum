@@ -22,6 +22,7 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', :require => false
+  gem 'cucumber-rails', :require => false
 end
 
 group :development do
