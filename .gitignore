@@ -18,3 +18,6 @@
 
 # Ignore Simple Cov results
 /coverage
+
+# Ignore New Relic secret stuff
+config/newrelic.yml
