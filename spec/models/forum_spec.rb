@@ -1,3 +1,4 @@
+SimpleCov.command_name 'test:units'
 require 'rails_helper'
 
 RSpec.describe Forum, type: :model do

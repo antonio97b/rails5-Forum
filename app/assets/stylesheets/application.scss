@@ -14,3 +14,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.forum-rows:hover {
+  cursor: pointer;
+}

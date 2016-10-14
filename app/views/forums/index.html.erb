@@ -7,13 +7,9 @@
     <table class="table">
       <tbody>
         <% @forums.each do |forum| %>
-          <tr>
+          <tr class="forum-rows" data-link="<%= forum_path(forum) %>">
             <td><%= forum.name %></td>
             <td><%= forum.description %></td>
-            <td><%# link_to 'Show', forum %></td>
-            <td><%= forum.user.email %></td>
-            <td><%# link_to 'Edit', edit_forum_path(forum) %></td>
-            <td><%# link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

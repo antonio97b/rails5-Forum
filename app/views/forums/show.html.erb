@@ -1,23 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @forum.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @forum.description %>
-</p>
+<% if @forum.user == current_user %>
+  <%= link_to 'Forum Control Panel', edit_forum_path(@forum) %>
+<% end %>
 
-<p>
-  <strong>Posts:</strong>
-  <% @forum.posts.each do |p| %>
-    <ul>
-      <li><%= link_to p.title, post_path(p) %></li>
-    </ul>
-  <% end %>
-</p>
+<div class="well">
+  <p>
+    <strong>Name:</strong>
+    <%= @forum.name %>
+  </p>
 
-<%= link_to 'Edit', edit_forum_path(@forum) %> |
-<%= link_to 'Back', forums_path %>
+  <p>
+    <strong>Description:</strong>
+    <%= @forum.description %>
+  </p>
+</div>
+
+<% if @forum.posts.any? %>
+  <p>
+    <strong>Posts:</strong>
+    <% @forum.posts.each do |p| %>
+      <ul>
+        <li><%= link_to p.title, post_path(p) %></li>
+      </ul>
+    <% end %>
+  </p>
+<% else %>
+  <p>There are no posts yet.</p>
+<% end %>
+
+<%# link_to 'Back', forums_path %>
