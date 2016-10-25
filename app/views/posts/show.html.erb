@@ -5,9 +5,10 @@
     <strong>Title:</strong>
     <%= @post.title %>
   </p>
-
+<% unless @post.description == "" %>
   <p>
     <strong>Description:</strong>
     <%= @post.description %>
   </p>
+<% end %>
 </div>

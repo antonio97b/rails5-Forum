@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Uni-Forum</a>
+      <a class="navbar-brand" href="<%= root_path %>">Uni-Forum</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,17 +19,12 @@
 
         <% if user_signed_in? %>
           <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to "Create Forum", new_forum_path %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <li><%= link_to "Sign in", user_session_path %></li>
         <% end %>
-
-        <% if @forum && current_user === @forum.user  %>
-          <li><%= link_to "SUPER MOD PANEL", edit_forum_path(@forum) %></li>
-        <% end %>
-
       </ul>
-
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
