@@ -23,7 +23,6 @@
 config/newrelic.yml
 
 # Ignore cucumber stuff
-/features
 /script
 config/cucumber.yml
 lib/tasks/cucumber.rake

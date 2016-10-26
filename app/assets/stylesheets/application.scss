@@ -14,7 +14,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$link-color: #337ab7;
 
 .forum-rows:hover {
   cursor: pointer;
+}
+
+#add-comment {
+  color: $link-color;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid
+  }
 }

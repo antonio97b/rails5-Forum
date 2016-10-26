@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-
 <% if @forum.user == current_user %>
   <%= link_to 'Forum Control Panel', edit_forum_path(@forum) %>
 <% end %>
+<br>
 
-<p><%= link_to 'Back', root_path %></p>
+<%= link_to "Add post", new_forum_post_path(@forum), class: "btn btn-primary" %> <%= link_to 'Back', root_path, class: "btn btn-primary" %>
 
 <div class="well">
   <p>
@@ -24,10 +22,12 @@
     <strong>Posts:</strong>
     <% @forum.posts.each do |p| %>
       <ul>
-        <li><%= link_to p.title, post_path(p) %></li>
+        <li><%= link_to p.title, forum_post_path(p) %></li>
       </ul>
     <% end %>
   </p>
 <% else %>
   <p>There are no posts yet.</p>
 <% end %>
+
+<%= link_to "Hot forums", root_path %>

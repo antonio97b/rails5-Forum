@@ -1,0 +1,10 @@
+<div id="comment-form" class="form-group">
+  <%= form_for @comment, remote: true, url: comments_path do |f| %>
+    <%= f.text_area :body, required: true, rows: 5, class: "form-control" %>
+    <%= f.hidden_field :commentable_id, :value => @post.id %>
+    <%= f.hidden_field :commentable_type, :value => @post.class.name %>
+    <br>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
+<span id="add-comment">Add a comment</span>
