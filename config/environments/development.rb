@@ -29,7 +29,8 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+  ### to increase speed times on development ###
+  config.action_mailer.perform_caching = true # Change back to false when done with development.
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

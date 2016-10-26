@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :forums
+  resources :forums, except: :index do
+    resources :posts do
+      resources :comments
+    end
+  end
   devise_for :users
   root "application#index"
 end

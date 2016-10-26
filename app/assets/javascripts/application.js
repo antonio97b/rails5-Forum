@@ -15,3 +15,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$( document ).ready(function() {
+  $("#comment-form").hide();
+  $('#add-comment').click( function() {
+    $("#comment-form").fadeToggle("fast");
+    ($("#add-comment").text() === "Cancel") ? $("#add-comment").text("Add comment") : $("#add-comment").text("Cancel");
+  });
+});
