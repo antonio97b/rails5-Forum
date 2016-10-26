@@ -1,0 +1,6 @@
+<h2>Comments</h2>
+<ul>
+  <% @post.comments.each do |c| %>
+    <li><%= c.body %></li>
+  <% end %>
+</ul>

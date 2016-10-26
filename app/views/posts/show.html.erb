@@ -5,10 +5,18 @@
     <strong>Title:</strong>
     <%= @post.title %>
   </p>
-<% unless @post.description == "" %>
+<% if @post.description %>
   <p>
     <strong>Description:</strong>
     <%= @post.description %>
   </p>
 <% end %>
 </div>
+
+<%= render "shared/comment_form" %>
+
+<% if @post.comments.any? %>
+  <%= render "shared/comment_list" %>
+<% else %>
+  <p>No comments yet</p>
+<% end %>

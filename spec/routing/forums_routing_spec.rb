@@ -3,9 +3,9 @@ require "rails_helper"
 RSpec.describe ForumsController, type: :routing do
   describe "routing" do
 
-    it "routes to #index" do
-      expect(:get => "/forums").to route_to("forums#index")
-    end
+    # it "routes to #index" do
+    #   expect(:get => "/forums").to route_to("forums#index")
+    # end
 
     it "routes to #new" do
       expect(:get => "/forums/new").to route_to("forums#new")
