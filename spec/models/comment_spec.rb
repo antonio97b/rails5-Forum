@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
+
+  it {should belong_to :user}
+
   before do
     @user  = FactoryGirl.create(:user)
     @forum = FactoryGirl.create(:forum, user: @user)
