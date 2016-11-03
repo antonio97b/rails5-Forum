@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Forum.find(params[:forum_id]).posts.build
   end
 
   # GET /posts/1/edit
@@ -30,7 +30,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        @forum = Forum.find(@post.forum_id)
+        # format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to forum_post_path(@forum, @post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -71,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :users_id, :forums_id)
+      params.require(:post).permit(:title, :description, :forum_id).merge(user_id: current_user.id)
     end
 end
