@@ -22,7 +22,7 @@
     <strong>Posts:</strong>
     <% @forum.posts.each do |p| %>
       <ul>
-        <li><%= link_to p.title, forum_post_path(p) %></li>
+        <li><%= link_to p.title, post_path(p) %></li>
       </ul>
     <% end %>
   </p>

@@ -64,10 +64,10 @@ module Populate_methods
     else
       @posts = []
     end
-    find_or_create_forums(1) # Default to create 1 forum and 1 user
+    find_or_create_forums(1) # Default to create 1 forum
     i = 1
     for i in 1..num
-      @posts.push(Post.create!( title: "Test title" + i.to_s, description: "test description" + i.to_s, user_id: @user.id, forum_id: @forum.id ))
+      @posts.push(Post.create!( title: "Post title" + i.to_s, description: "test description" + i.to_s, user_id: @user.id, forum_id: @forums.first.id ))
       i += 1
     end
     @posts
@@ -94,16 +94,22 @@ module Populate_methods
 
   def find_or_create_forums(num)
     find_or_create_user
+    @forums = []
+
     if Forum.count >= num
       @forums = Forum.first(num)
-    else
-      @forums = []
+    end
+
+    if @forums.count < num
       for n in 1..num
-        @forums.push(Forum.create!(name: "Test Forum" + n.to_s, description: "Forum description with a minimum of 20 chars.", user_id: @user.id))
+        forum = Forum.new(name: "Test forum name" + n.to_s, description: "Forum description with a minimum of 20 chars.", user_id: @user.id)
+        if forum.name != Forum.where(name: "Test forum name" + n.to_s)
+         forum.save
+          @forums.push(forum)
+        end
         n += 1
       end
       @forums
     end
-    @forums
   end
 end

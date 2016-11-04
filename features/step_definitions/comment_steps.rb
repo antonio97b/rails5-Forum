@@ -10,13 +10,6 @@ Given(/^I am logged in$/) do
   expect(page).to have_content("Signed in successfully.")
 end
 
-Given(/^I have (\d+) posts$/) do |num|
-  num = num.to_i
-  find_or_create_posts(num)
-  expect(Post.first.title).to eq("Test title1")
-  expect(Post.count).to eq(num)
-end
-
 When(/^I visit the "([^"]*)" page$/) do |route|
   "#{route}_path"
 end
@@ -29,10 +22,6 @@ When(/^I click the first post$/) do
   click_link post_title
   save_and_open_page
   expect(page).to have_content post_title
-end
-
-Then(/^I should see (\d+) comment$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
 end
 
 World(Populate_methods)

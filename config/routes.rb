@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :forums do
-    resources :posts do
-      resources :comments
-    end
+    resources :posts,     shallow: true
+    resources :comments,  shallow: true
   end
   devise_for :users
   root "application#index"
