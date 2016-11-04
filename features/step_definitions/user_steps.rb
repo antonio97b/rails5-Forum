@@ -1,6 +1,6 @@
 SimpleCov.command_name "test:integration"
 
-Given(/^I visit the index$/) do
+Given(/^I am on the index$/) do
   visit root_path
 end
 

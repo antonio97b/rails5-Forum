@@ -2,7 +2,7 @@ Feature: User Features
 As a user I want to be able to Sign Up or Log In when I visit the home page so that I can use the website.
 
 Scenario: Create a user account
-Given I visit the index
+Given I am on the index
 When I click the Sign up link
 When I fill in "Email" with "test@user.com"
 When I fill in "Password" with "password#1"
