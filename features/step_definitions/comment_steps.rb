@@ -1,8 +1,5 @@
 Given(/^I am logged in$/) do
-  email = 'test@user.com'
-  password = 'password#1'
-  User.create!( :email => email, :password => password, :password_confirmation => password )
-
+  find_or_create_user
   visit user_session_path
   fill_in "Email", with: "test@user.com"
   fill_in "Password", with: "password#1"
@@ -15,12 +12,11 @@ When(/^I visit the "([^"]*)" page$/) do |route|
 end
 
 When(/^I click the first post$/) do
-  post_title   = @posts.first.title
-  forum_name  = @forum.name
+  post_title   = Post.first.title
+  forum_name  = Forum.first.name
   visit root_path
   click_link forum_name
   click_link post_title
-  save_and_open_page
   expect(page).to have_content post_title
 end
 

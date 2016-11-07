@@ -84,7 +84,7 @@ module Populate_methods
     elsif email && password
       @user = User.create!( :email => email, :password => password, :password_confirmation => password )
     elsif !email && !password
-      @user = User.create!( :email => "test2@email.com", :password => "password#1", :password_confirmation => "password#1" )
+      @user = User.create!( :email => "test@user.com", :password => "password#1", :password_confirmation => "password#1" )
     else
       return "User does not exist"
     end

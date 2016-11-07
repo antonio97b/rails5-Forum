@@ -21,3 +21,8 @@ end
 When(/^I click the "([^"]*)" button$/) do |button|
   click_button button
 end
+
+# Then(/^I should see "([^"]*)" comment$/) do |arg1|
+#   comment_body = Forum.first.post.first.comment.first.body
+#   expect(page).to have_content(comment_body)
+# end

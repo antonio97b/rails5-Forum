@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <h2>Post:</h2>
 <div class="well">
   <p>
@@ -13,10 +12,14 @@
 <% end %>
 </div>
 
-<%#= render "shared/comment_form" %>
+<% if current_user %>
+  <%= render "shared/comment_form" %>
+<% else %>
+  <p>Log in to add comments</p>
+<% end %>
 
-<%# if @post.comments.any? %>
-  <%#= render "shared/comment_list" %>
-<%# else %>
-  <!-- <p>No comments yet</p> -->
-<%# end %>
+<% if @post.comments.any? %>
+  <%= render "shared/comment_list" if current_user %>
+<% else %>
+  <p>No comments yet</p>
+<% end %>

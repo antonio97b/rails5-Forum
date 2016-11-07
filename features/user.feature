@@ -12,7 +12,7 @@ Then I should see "Welcome! You have signed up successfully."
 
 Scenario: Sign In as a user
 Given I am a registered user
-Given I visit the index
+Given I am on the index
 When I click the Sign in link
 When I fill in "Email" with "test@user.com"
 When I fill in "Password" with "password#1"

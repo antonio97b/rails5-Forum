@@ -35,3 +35,12 @@ Given I am on the index
 Given I click the "Test forum name1" link
 Given I click the "Post title1" link
 Then I should see "Post:"
+
+Scenario: If I am _not_ signed in, I shouldn't see a comment form.
+Given There is a Post
+Given I am on the index
+Given I click the "Test forum name1" link
+Given I click the "Post title1" link
+Then I should not see "Add a comment"
+Then I should not see "Create Comment"
+Then I should see "Log in to add comments"
