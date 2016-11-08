@@ -1,12 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-
 <% if @forum.user == current_user %>
   <%= link_to 'Forum Control Panel', edit_forum_path(@forum) %>
 <% end %>
 <br>
 
-<%= link_to "Add post", new_forum_post_path(@forum), class: "btn btn-primary" %> <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+<%= link_to "Add Post", new_forum_post_path(@forum), class: "btn btn-primary" %> <%= link_to 'Back', root_path, class: "btn btn-primary" %>
 
 <div class="well">
   <p>
@@ -32,3 +29,5 @@
 <% else %>
   <p>There are no posts yet.</p>
 <% end %>
+
+<%= link_to "Hot forums", root_path %>

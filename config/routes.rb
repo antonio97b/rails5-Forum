@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :forums, except: :index do
-    resources :posts do
-      resources :comments
+  resources :forums do
+    resources :posts,     shallow: true do
+      resources :comments,  shallow: true
     end
   end
   devise_for :users

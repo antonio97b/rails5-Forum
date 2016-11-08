@@ -2,5 +2,6 @@
 <ul>
   <% @post.comments.each do |c| %>
     <li><%= c.body %></li>
+      <%= render "shared/comment_form" %>
   <% end %>
 </ul>

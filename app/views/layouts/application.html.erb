@@ -13,6 +13,9 @@
       <%= render "shared/nav" %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      <% unless current_page?('/') %>
+        <%= link_to "Hot Forums", root_path %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
