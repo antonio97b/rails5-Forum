@@ -13,13 +13,13 @@
 </div>
 
 <% if current_user %>
-  <%= render "shared/comment_form" %>
+  <%= render partial: "shared/comment_form", :locals => { commentable_type: @post.class.name, commentable_id: @post.id } if current_user %>
 <% else %>
   <p>Log in to add comments</p>
 <% end %>
 
 <% if @post.comments.any? %>
-  <%= render "shared/comment_list" if current_user %>
+  <%= render "shared/comment_list" %>
 <% else %>
   <p>No comments yet</p>
 <% end %>

@@ -16,10 +16,17 @@
 //= require turbolinks
 //= require_tree .
 
-$( document ).ready(function() {
-  $("#comment-form").hide();
-  $('#add-comment').click( function() {
-    $("#comment-form").fadeToggle("fast");
-    ($("#add-comment").text() === "Cancel") ? $("#add-comment").text("Add comment") : $("#add-comment").text("Cancel");
+$(document).on('turbolinks:load', function() {
+  $(".comment-form").hide();
+
+  $('.add-comment').click( function(event) {
+    // Store the button which has just been clicked on a variable
+    var eventTarget = $(event.target);
+
+    // Find the previous element with the #comment-form and id and toggle it
+    eventTarget.prev('.comment-form').fadeToggle('fast');
+
+    // Use the eventTarget Again
+    (eventTarget.text() === 'Cancel') ? eventTarget.text('Add comment') : eventTarget.text('Hide');
   });
 });

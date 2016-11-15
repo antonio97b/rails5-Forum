@@ -1,7 +1,7 @@
 <h2>Comments</h2>
 <ul>
-  <% @post.comments.each do |c| %>
-    <li><%= c.body %></li>
-      <%= render "shared/comment_form" %>
+  <% @post.comments.each do |co| %>
+    <li><%= co.body %></li>
+    <%= render partial: "shared/comment_form", :locals => { commentable_type: co.class.name, commentable_id: co.id } if current_user %>
   <% end %>
 </ul>
