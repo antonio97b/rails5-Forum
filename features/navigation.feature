@@ -44,3 +44,9 @@ Given I click the "Post title1" link
 Then I should not see "Add a comment"
 Then I should not see "Create Comment"
 Then I should see "Log in to add comments"
+
+Scenario: As a user I want to visit the control panel
+Given There is a User
+Given I am on the index
+Then I click the "Control panel" link
+Then I should see "Control Panel:"
