@@ -1,1 +1,13 @@
 <h2>Control Panel:</h2>
+
+<h3>Recent comments:</h3>
+
+<% if @comments.any? %>
+  <ul>
+    <% @comments.each do |co| %>
+      <li><%= co[:comment] %> | <%= co[:post] %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You haven't made any comments yet!</p>
+<% end %>
