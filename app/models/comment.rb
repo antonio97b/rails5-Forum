@@ -8,6 +8,6 @@ class Comment < ApplicationRecord
 
   def find_parent_post
     return self.commentable if self.commentable.is_a?(Post)
-    self.commentable.find_parent_post
+    self.commentable.find_parent_post # semi recursion will keep calling itself until it .is_a? Post
   end
 end
