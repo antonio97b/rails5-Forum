@@ -68,6 +68,10 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 
+    def all_comments
+      @comments = Comment.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:body, :post_id, :parent_id, :commentable_id, :commentable_type, :user_id)

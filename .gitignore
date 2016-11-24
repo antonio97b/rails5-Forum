@@ -29,3 +29,6 @@ lib/tasks/cucumber.rake
 
 # Ignore simplecov config file.
 .simplecov
+
+# Ignore Rubymine IDE stuff...
+.idea/
