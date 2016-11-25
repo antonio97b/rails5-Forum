@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :posts
 
   # TODO rename method and change type
-  def find_all_user_comments
+  def comment_post_hash
     @comment_hash = []
     @user_comments = Comment.where(user_id: self.id)
     @user_comments.all.each do |co|

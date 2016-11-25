@@ -20,9 +20,9 @@ RSpec.describe User, type: :model do
 
   ### methods ###
 
-  describe 'self.find_all_user_comments(user)' do
+  describe '.comment_post_hash' do
     it 'should gather all user comments and put them in a hash along with the post the comment belonged to' do
-      hashes = @user.find_all_user_comments
+      hashes = @user.comment_post_hash
 
       expect(hashes).to eq([  { comment: @top_level_comment,   post: @post },
                               { comment: @child_comment,       post: @post },
