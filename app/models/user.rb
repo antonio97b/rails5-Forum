@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :forums
   has_many :posts
 
-  # TODO rename method and change type
   def comment_post_hash
     @comment_hash = []
     @user_comments = Comment.where(user_id: self.id)
