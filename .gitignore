@@ -32,3 +32,6 @@ lib/tasks/cucumber.rake
 
 # Ignore Rubymine IDE stuff...
 .idea/
+
+# Ignore .questions
+.questions
