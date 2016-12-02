@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to post_path(@comment.commentable_id) }
+        format.html { redirect_to post_path(params[:post_id]) }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

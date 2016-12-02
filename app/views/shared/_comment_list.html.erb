@@ -3,12 +3,17 @@
   <ul>
     <% @post.comments.each do |c| %>
       <li><%= c.body %></li>
+      <% unless c.is_deleted == true %>
+        <%= render partial: "shared/comment_form", :locals => { commentable_type: c.class.name, commentable_id: c.id, post: @post.id } if current_user %>
+      <% end %>
       <ul>
         <% c.comments.each do |d| %>
           <li><%= d.body %></li>
+          <% unless d.is_deleted == true %>
+            <%= render partial: "shared/comment_form", :locals => { commentable_type: d.class.name, commentable_id: d.id, post: @post.id } if current_user %>
+          <% end %>
         <% end %>
       </ul>
-      <%= render partial: "shared/comment_form", :locals => { commentable_type: c.class.name, commentable_id: c.id } if current_user %>
     <% end %>
   </ul>
 </div>
