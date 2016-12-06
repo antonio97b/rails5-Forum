@@ -2,8 +2,8 @@
 
 
 <div class="col-md-10 col-md-offset-1">
-<h3>Recent comments:</h3>
   <% if @comments.any? %>
+  <h3>Recent comments:</h3>
   <table class="table">
     <thead>
       <tr>
@@ -22,5 +22,7 @@
         <% end %>
     </tbody>
   </table>
+  <% else %>
+    <h4>You haven't made any comments yet!</h4>
   <% end %>
 </div>
