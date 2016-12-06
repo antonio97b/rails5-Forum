@@ -1,8 +1,3 @@
 <h1>New Post</h1>
-<%= controller %>
-<% if @post.forum_id %>
-  <p>forum id exists</p>
-<% else %>
-  <p>Nope</p>
-<% end %>
+
 <%= render 'form', post: @post %>
